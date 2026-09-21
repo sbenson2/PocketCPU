@@ -24,13 +24,13 @@ jobs:
       - name: Check and stage the public site
         run: python3 scripts/build-site.py
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && vars.POCKETCPU_PAGES_ACTIONS == 'true'
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && vars.POCKETCPU_PAGES_ACTIONS == 'true'
         with:
           path: _site
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && vars.POCKETCPU_PAGES_ACTIONS == 'true'
     needs: build
     runs-on: ubuntu-24.04
     timeout-minutes: 5
