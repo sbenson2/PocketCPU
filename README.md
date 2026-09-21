@@ -27,4 +27,4 @@ Without `--publish`, this command only checks and stages the site. Publication u
 
 The included Actions workflow validates `main` and pull requests when Actions runners are available. Deployment from that workflow is opt-in: change the Pages source to GitHub Actions and set repository variable `POCKETCPU_PAGES_ACTIONS=true`. Do not use the branch publisher while that mode is enabled. This keeps the working branch publication route independent of custom Actions execution.
 
-Use public issues for general support and the [private reporting channel](SECURITY.md) for vulnerabilities. [Asset usage](ASSETS.md) and [design notes](DESIGN.md) describe the public materials. App Store availability, a public relay service, and desktop installers remain planned.
+Use public issues for general support and the [private reporting channel](SECURITY.md) for vulnerabilities. [Asset usage](ASSETS.md) and [design notes](DESIGN.md) describe the public materials. The site describes development builds only. No App Store download, public relay service, or consumer desktop installer is available.
