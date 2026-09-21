@@ -19,8 +19,9 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header wrap">
+  <header class="site-header site-rail wrap">
     <a class="brand" href="./" aria-label="PocketCPU home"><img src="assets/brand.svg" width="34" height="34" alt=""><span>PocketCPU</span></a>
+    <p class="site-context">OpenCode sessions</p>
     <nav aria-label="Main navigation">
       <a href="guide.html" aria-current="page">Setup</a>
       <a href="privacy.html">Privacy</a>
@@ -39,13 +40,13 @@
       <li>A model configured in OpenCode. Any provider account, usage charges, and hosting are separate from PocketCPU.</li>
       <li>An HTTPS address with a certificate your device trusts.</li>
     </ul>
-    <p>Native Windows support is planned. Running the Linux components together in WSL2 is an interim development route, with Windows-specific networking and device testing still to complete.</p>
+    <p>Windows development archives are cross-built, but native Windows runtime, ACL, networking, and device testing remain outstanding. WSL2 remains an interim development route when OpenCode and PocketCPU run in the same Linux environment.</p>
     <h2>Pair a development build</h2>
     <ol>
       <li><strong>Run OpenCode on the host.</strong> Keep its server on loopback with authentication, and retain its permission policy.</li>
       <li><strong>Configure PocketCPU.</strong> The host owner chooses the project directories and HTTPS route. The companion never needs a public, unauthenticated OpenCode port.</li>
       <li><strong>Create a pairing code.</strong> Run the host's pairing command, then enter the HTTPS address and expiring single-use code in the app.</li>
-      <li><strong>Open a session.</strong> Choose a project, resume or create a conversation, and send a message. Handle permission requests on the host until the native approval UI is ready.</li>
+      <li><strong>Open a session.</strong> Choose a project, resume or create a conversation, and send a message. Development builds can show permission requests and questions for a response from the paired device.</li>
     </ol>
     <p>When the companion is installed, its local administration commands are:</p>
     <pre><code>pocketcpu-host version
@@ -60,8 +61,8 @@ pocketcpu-host revoke --device DEVICE_ID</code></pre>
     <p>An existing trusted HTTPS address on your tailnet is another route to the same host. PocketCPU does not change VPN settings or display a Tailscale setup prompt just because the app opens.</p>
     <h3>Experimental self-hosted relay</h3>
     <p>The outbound bridge lets the host retrieve requests from a separately hosted relay. Both connections use HTTPS, but the relay terminates TLS and can read the traffic. This is not end-to-end encryption or a ready public relay service.</p>
-    <h2>Work in progress</h2>
-    <p>The current client displays structured text conversations. Full terminal emulation, native agent approvals/questions, friendly desktop installation, and production networking remain release work.</p>
+    <h2>Release requirements</h2>
+    <p>Development builds include structured text conversations, terminal access, tool activity, and permission/question responses. A consumer desktop installer, signing, native Windows runtime validation, and production networking checks remain before public distribution.</p>
     <p>For a setup question, <a href="https://github.com/sbenson2/PocketCPU/issues">open a support issue</a> without credentials, private code, or identifying host information.</p>
   </main>
   <footer class="site-footer wrap">
