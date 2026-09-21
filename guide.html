@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How PocketCPU connects your iPhone or iPad to OpenCode on your own computer. Current setup requirements and development limits.">
+  <meta property="og:title" content="Setup and development | PocketCPU">
+  <meta property="og:description" content="How PocketCPU connects your iPhone or iPad to OpenCode on your own computer. Current setup requirements and development limits.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sbenson2.github.io/PocketCPU/guide.html">
+  <meta property="og:image" content="https://sbenson2.github.io/PocketCPU/assets/app-icon-1024.png">
+  <meta property="og:image:alt" content="PocketCPU app icon">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://sbenson2.github.io/PocketCPU/guide.html">
+  <link rel="icon" href="assets/brand.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/app-icon-1024.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Setup and development | PocketCPU</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="./" aria-label="PocketCPU home"><img src="assets/brand.svg" width="34" height="34" alt=""><span>PocketCPU</span></a>
+    <nav aria-label="Main navigation">
+      <a href="guide.html" aria-current="page">Setup</a>
+      <a href="privacy.html">Privacy</a>
+      <a class="desktop-link" href="https://github.com/sbenson2/PocketCPU">GitHub</a>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1" class="wrap prose">
+    <p class="status">Development guide</p>
+    <h1>Connect to your computer.</h1>
+    <p class="lede">PocketCPU pairs a native iPhone or iPad client with a host you control.</p>
+    <p class="note">The project is in development. A public App Store build and consumer companion installer are not available yet. These notes describe the current workflow.</p>
+    <h2>What you need</h2>
+    <ul>
+      <li>An iPhone or iPad running iOS or iPadOS 17 or later.</li>
+      <li>Your own Mac or Linux computer, a PocketCPU development build, and OpenCode installed separately.</li>
+      <li>A model configured in OpenCode. Any provider account, usage charges, and hosting are separate from PocketCPU.</li>
+      <li>An HTTPS address with a certificate your device trusts.</li>
+    </ul>
+    <p>Native Windows support is planned. Running the Linux components together in WSL2 is an interim development route, with Windows-specific networking and device testing still to complete.</p>
+    <h2>Pair a development build</h2>
+    <ol>
+      <li><strong>Run OpenCode on the host.</strong> Keep its server on loopback with authentication, and retain its permission policy.</li>
+      <li><strong>Configure PocketCPU.</strong> The host owner chooses the project directories and HTTPS route. The companion never needs a public, unauthenticated OpenCode port.</li>
+      <li><strong>Create a pairing code.</strong> Run the host's pairing command, then enter the HTTPS address and expiring single-use code in the app.</li>
+      <li><strong>Open a session.</strong> Choose a project, resume or create a conversation, and send a message. Handle permission requests on the host until the native approval UI is ready.</li>
+    </ol>
+    <p>When the companion is installed, its local administration commands are:</p>
+    <pre><code>pocketcpu-host version
+pocketcpu-host pair --expires 10m
+pocketcpu-host devices
+pocketcpu-host revoke --device DEVICE_ID</code></pre>
+    <p>These commands use an already initialized host configuration. Pairing codes and device credentials are secrets; keep them out of screenshots, public issues, and shared logs.</p>
+    <h2>Connection routes</h2>
+    <h3>Direct HTTPS</h3>
+    <p>Use a trusted HTTPS address your phone can resolve and reach. Certificate setup and network reachability both matter. The app does not accept invalid certificates or fall back to HTTP.</p>
+    <h3>Optional Tailscale HTTPS</h3>
+    <p>An existing trusted HTTPS address on your tailnet is another route to the same host. PocketCPU does not change VPN settings or display a Tailscale setup prompt just because the app opens.</p>
+    <h3>Experimental self-hosted relay</h3>
+    <p>The outbound bridge lets the host retrieve requests from a separately hosted relay. Both connections use HTTPS, but the relay terminates TLS and can read the traffic. This is not end-to-end encryption or a ready public relay service.</p>
+    <h2>Work in progress</h2>
+    <p>The current client displays structured text conversations. Full terminal emulation, native agent approvals/questions, friendly desktop installation, and production networking remain release work.</p>
+    <p>For a setup question, <a href="https://github.com/sbenson2/PocketCPU/issues">open a support issue</a> without credentials, private code, or identifying host information.</p>
+  </main>
+  <footer class="site-footer wrap">
+    <span>© 2026 PocketCPU</span>
+    <nav aria-label="Footer"><a href="press.html">Press kit</a><a href="privacy.html">Privacy</a><a href="https://github.com/sbenson2/PocketCPU/issues">Support</a><a href="https://github.com/sbenson2/PocketCPU">GitHub</a></nav>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Current PocketCPU website and development-build data handling, including local storage, OpenCode providers, and relay visibility.">
+  <meta property="og:title" content="Privacy | PocketCPU">
+  <meta property="og:description" content="Current PocketCPU website and development-build data handling, including local storage, OpenCode providers, and relay visibility.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sbenson2.github.io/PocketCPU/privacy.html">
+  <meta property="og:image" content="https://sbenson2.github.io/PocketCPU/assets/app-icon-1024.png">
+  <meta property="og:image:alt" content="PocketCPU app icon">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://sbenson2.github.io/PocketCPU/privacy.html">
+  <link rel="icon" href="assets/brand.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/app-icon-1024.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Privacy | PocketCPU</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="./" aria-label="PocketCPU home"><img src="assets/brand.svg" width="34" height="34" alt=""><span>PocketCPU</span></a>
+    <nav aria-label="Main navigation">
+      <a href="guide.html">Setup</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a class="desktop-link" href="https://github.com/sbenson2/PocketCPU">GitHub</a>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1" class="wrap prose">
+    <h1>Privacy and data handling.</h1>
+    <p class="lede">These notes describe the website and current development build. They will be reviewed again before public app distribution.</p>
+    <h2>This website</h2>
+    <p>The website has no analytics scripts, advertising trackers, signup forms, third-party fonts, or PocketCPU account system. Its assets are served by GitHub Pages.</p>
+    <p>GitHub may process visitor IP addresses and request information to operate the hosting service. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>. Opening an external link is subject to that site's practices.</p>
+    <h2>On your device</h2>
+    <p>The app stores a host address, device identity, saved tabs, and drafts. Device access credentials are kept in the device-only iOS Keychain. Connection errors do not deliberately clear saved work.</p>
+    <p>Closing a tab removes that local tab and its draft. It does not delete the underlying OpenCode conversation on your computer.</p>
+    <h2>On your computer</h2>
+    <p>The companion stores configured project locations and pairing/device records in a protected state file. Pairing codes and device tokens are stored as hashes. The host owner can revoke a device locally; revocation blocks access and does not erase the host's session history.</p>
+    <p>OpenCode manages coding sessions on your computer. Its model configuration determines whether prompts, code, and tool output are sent to a model provider. Those providers have their own terms, retention, and privacy practices.</p>
+    <h2>During a connection</h2>
+    <p>The app uses HTTPS with system certificate validation. Direct connections go to the host endpoint the user selects. Choosing Tailscale also involves that network service and its policies.</p>
+    <p>The experimental relay terminates TLS and can read forwarded credentials and session traffic in memory. It is not end-to-end encrypted. There is no PocketCPU-operated public relay in this development release.</p>
+    <h2>Support and reports</h2>
+    <p>Public <a href="https://github.com/sbenson2/PocketCPU/issues">GitHub issues</a> are visible to others. Do not post passwords, pairing codes, tokens, private source code, or personal information. Use the repository's <a href="https://github.com/sbenson2/PocketCPU/security">security reporting guidance</a> for vulnerabilities.</p>
+    <p>Final retention/removal instructions, App Store privacy disclosures, and the release privacy policy remain part of launch preparation. No company account or payment information is collected by this website.</p>
+  </main>
+  <footer class="site-footer wrap">
+    <span>© 2026 PocketCPU</span>
+    <nav aria-label="Footer"><a href="press.html">Press kit</a><a href="privacy.html">Privacy</a><a href="https://github.com/sbenson2/PocketCPU/issues">Support</a><a href="https://github.com/sbenson2/PocketCPU">GitHub</a></nav>
+  </footer>
+</body>
+</html>

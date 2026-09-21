@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sbenson2.github.io/PocketCPU/sitemap.xml
