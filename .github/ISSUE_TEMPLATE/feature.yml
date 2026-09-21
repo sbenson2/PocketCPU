@@ -1,0 +1,10 @@
+name: Suggest a feature
+description: Describe a workflow you want PocketCPU to support.
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: What are you trying to do?
+      description: Describe the task and where the current workflow gets in the way.
+    validations:
+      required: true

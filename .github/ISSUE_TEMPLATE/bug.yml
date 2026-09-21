@@ -1,0 +1,27 @@
+name: Report a problem
+description: Report a website or PocketCPU development-build problem.
+body:
+  - type: markdown
+    attributes:
+      value: "Issues are public. Remove passwords, tokens, pairing codes, personal details, and private code. For vulnerabilities, use the repository's private security report form."
+  - type: input
+    id: version
+    attributes:
+      label: Version and device
+      description: App/companion version, OS, and device or browser.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps and expected result
+      description: Include the connection route if relevant. Use a sample project.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include a redacted error message or screenshot if helpful.
+    validations:
+      required: true
